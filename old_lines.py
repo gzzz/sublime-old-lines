@@ -73,7 +73,10 @@ class KillLineCommand(LinesKiller):
 	def run(self, edit):
 		view = self.view
 
-		for sel in view.sel():
+		selections = list(view.sel())
+		selections.reverse()
+
+		for sel in selections:
 			self.kill(edit, view.line(sel))
 
 
