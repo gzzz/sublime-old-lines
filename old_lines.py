@@ -57,7 +57,7 @@ class LinesKiller(sublime_plugin.TextCommand):
 			if line.empty() or view.substr(line).strip() == '':
 				scope.append(line)
 			else:
-				if above:
+				if above and pos > line.b:
 					scope.append(sublime.Region(line.b, line.b))
 
 				break
